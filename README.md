@@ -1,5 +1,16 @@
 # lab-02
+## jQuery, Selectors, and Events - Lab 02 and Lab 03
 
+### Description:
+This repo holds our work for labs 2 & 3.
+Dealing with jQuery, selectors and events.
+Day one: worked on the first three features.
+
+### Collaborators:
+Tia Low
+David Dicken
+
+### Feature Time Estimates
 Number and name of feature: #1 Display Images
 
 Estimate of time needed to complete: 45min
