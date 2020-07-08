@@ -7,6 +7,10 @@
 // use info to fill in the template
 // display imgs on page
 
+// global array of collection of all the animals
+//forEach on that collection, add all options to menu
+
+
 
 // ajax:
 $.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
@@ -15,8 +19,18 @@ $.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
     data.forEach(objectInArray => {
       new HornedAnimals(objectInArray).animalImageBuilder();
     })
-  //.then(HornedAnimals.selectedImageBuilder);
 
+    //Chance Harmon & Andrew Casper helped us with the below
+
+    $('select').on('change', function(){
+      $('section').hide();
+      $('section').each((index, element) => {
+        if (this.value === $(element).find('h2').text()){
+          // console.log(this);
+          $(element).show();
+        }
+      });
+    })
   })
 
 // create constructor:
@@ -37,7 +51,7 @@ HornedAnimals.prototype.animalImageBuilder = function(){
   const template = $('#photo-template').html();
   const $newSection = $(`<section>${template}</section>`);
 
-  $newSection.find('h2').text(this.name);
+  $newSection.find('h2').text(this.keyword);
   $newSection.find('img').attr('src', this.image);
   $newSection.find('img').attr('alt', this.description);
   $('main').append($newSection);
@@ -47,7 +61,6 @@ HornedAnimals.prototype.animalImageBuilder = function(){
 
   $('select').append($newOption);
   // https://stackoverflow.com/questions/2822962/jquery-remove-duplicate-elements
-  // collaberated with Blake and Claudio
   var seen = {};
   $('option').each(function(){
     var txt = $(this).text();
@@ -58,22 +71,29 @@ HornedAnimals.prototype.animalImageBuilder = function(){
 
   });
 }
+
+
+
+
+
 HornedAnimals.prototype.selectedImageBuilder = function(){
   // jQuery listening for click
-  // .on change method 
+  // .on('click', ____) change method
   // check $(this).val()
   // if val === hornedAnimals.keyword
-  // show matching img
-  // hide others 
+  // show() matching img
+  // hide() others
+  // can do fade in and out stuff here too, if we want
 
+  // $('option').on('click', clickedOption());
+
+  // function clickedOption() {
+  //   console.log('option was clicked...');
+  // }
+
+  console.log('im in selectedImageBuilder!');
 
 }
 
-//$('option').click(function)
 
-
-// feature #2
-// getting keywords to drop down list
-// need to target drop down menu from html
-// creat option tags to hold keywords from object
 
