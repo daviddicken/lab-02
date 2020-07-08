@@ -46,9 +46,9 @@ Actual time needed to complete: 4 hours-ish
 
 Number and name of feature: #3 Style the Application
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 7:50
 
 Finish time: _____
 

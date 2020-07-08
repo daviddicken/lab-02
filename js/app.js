@@ -26,7 +26,7 @@ $.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
       $('section').hide();
       $('section').each((index, element) => {
         if (this.value === $(element).find('h2').text()){
-          // console.log(this);
+
           $(element).show();
         }
       });
