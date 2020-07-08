@@ -10,8 +10,6 @@
 // global array of collection of all the animals
 //forEach on that collection, add all options to menu
 
-
-
 // ajax:
 $.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
   .then(data => {
@@ -61,38 +59,15 @@ HornedAnimals.prototype.animalImageBuilder = function(){
 
   $('select').append($newOption);
   // https://stackoverflow.com/questions/2822962/jquery-remove-duplicate-elements
-  var seen = {};
+  const seen = {};
   $('option').each(function(){
-    var txt = $(this).text();
+    let txt = $(this).text();
     if (seen[txt])
       $(this).remove();
     else
       seen[txt] = true;
 
   });
-}
-
-
-
-
-
-HornedAnimals.prototype.selectedImageBuilder = function(){
-  // jQuery listening for click
-  // .on('click', ____) change method
-  // check $(this).val()
-  // if val === hornedAnimals.keyword
-  // show() matching img
-  // hide() others
-  // can do fade in and out stuff here too, if we want
-
-  // $('option').on('click', clickedOption());
-
-  // function clickedOption() {
-  //   console.log('option was clicked...');
-  // }
-
-  console.log('im in selectedImageBuilder!');
-
 }
 
 
