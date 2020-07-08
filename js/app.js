@@ -24,7 +24,6 @@ $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
       $('section').hide();
       $('section').each((index, element) => {
         if (this.value === $(element).find('h2').text()){
-
           $(element).show();
         }
       });
@@ -46,14 +45,23 @@ function HornedAnimals(obj){
 HornedAnimals.prototype.animalImageBuilder = function(){
 // need to get template from html, fill template w/data info
 // append to DOM
-  const template = $('#photo-template').html();
-  const $newSection = $(`<section>${template}</section>`);
 
-  $newSection.find('h2').text(this.keyword);
-  $newSection.find('img').attr('src', this.image);
-  $newSection.find('img').attr('alt', this.description);
-  $('main').append($newSection);
+  //grab template from html
+  // use mustache to create new html by merging template with our object
+  // return the html from method
+  // append it to the DOM
+  let template = $('#photo-template').html();
+  let html = Mustache.render(template, this);
 
+  $('main').append(html);
+
+  this.dropDownList();
+}
+
+//------------------- drop down function ----------------
+
+HornedAnimals.prototype.dropDownList = function(){
+  // maybe refactor below
   const $newOption = $(`<option value="${this.keyword}">${this.keyword}</option>`);
   $('select').append($newOption);
 
