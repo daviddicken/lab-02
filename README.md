@@ -9,6 +9,15 @@ Day one: worked on the first three features.
 ### Collaborators:
 Tia Low
 David Dicken
+Blake Romero
+Claudio Bailon-Schubert
+
+### Resources
+- https://stackoverflow.com/questions/2822962/jquery-remove-duplicate-elements
+- https://oscarotero.com/jquery/
+
+
+
 
 ### Feature Time Estimates
 Number and name of feature: #1 Display Images
@@ -23,18 +32,15 @@ Actual time needed to complete: 55 min
 
 
 
-
-
 Number and name of feature: #2 Filter Images
 
 Estimate of time needed to complete: 2 hrs
 
 Start time: 3:15pm
 
-Finish time: _____
+Finish time: 7:30pm
 
-Actual time needed to complete: _____
-
+Actual time needed to complete: 4 hours-ish
 
 
 
