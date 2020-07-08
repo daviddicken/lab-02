@@ -13,10 +13,9 @@ $.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
   .then(data => {
     // run each object through constructor
     data.forEach(objectInArray => {
-      //console.log('horned animals from forEach...', objectInArray);
       new HornedAnimals(objectInArray).animalImageBuilder();
-
     })
+  //.then(HornedAnimals.selectedImageBuilder);
 
   })
 
@@ -43,5 +42,38 @@ HornedAnimals.prototype.animalImageBuilder = function(){
   $newSection.find('img').attr('alt', this.description);
   $('main').append($newSection);
 
+
+  const $newOption = $(`<option value="${this.keyword}">${this.keyword}</option>`);
+
+  $('select').append($newOption);
+  // https://stackoverflow.com/questions/2822962/jquery-remove-duplicate-elements
+  // collaberated with Blake and Claudio
+  var seen = {};
+  $('option').each(function(){
+    var txt = $(this).text();
+    if (seen[txt])
+      $(this).remove();
+    else
+      seen[txt] = true;
+
+  });
 }
+HornedAnimals.prototype.selectedImageBuilder = function(){
+  // jQuery listening for click
+  // .on change method 
+  // check $(this).val()
+  // if val === hornedAnimals.keyword
+  // show matching img
+  // hide others 
+
+
+}
+
+//$('option').click(function)
+
+
+// feature #2
+// getting keywords to drop down list
+// need to target drop down menu from html
+// creat option tags to hold keywords from object
 
