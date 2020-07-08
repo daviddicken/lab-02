@@ -11,7 +11,7 @@
 //forEach on that collection, add all options to menu
 
 // ajax:
-$.ajax('data/page-1.json', {method: "GET", dataType: "JSON"})
+$.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
   .then(data => {
     // run each object through constructor
     data.forEach(objectInArray => {
@@ -54,10 +54,9 @@ HornedAnimals.prototype.animalImageBuilder = function(){
   $newSection.find('img').attr('alt', this.description);
   $('main').append($newSection);
 
-
   const $newOption = $(`<option value="${this.keyword}">${this.keyword}</option>`);
-
   $('select').append($newOption);
+
   // https://stackoverflow.com/questions/2822962/jquery-remove-duplicate-elements
   const seen = {};
   $('option').each(function(){
