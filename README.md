@@ -36,7 +36,7 @@ Number and name of feature: #2 Filter Images
 
 Estimate of time needed to complete: 2 hrs
 
-Start time: 3:15pm
+Start time: 3p:15m
 
 Finish time: 7:30pm
 
@@ -59,13 +59,13 @@ Actual time needed to complete: 1 hr
 
 Number and name of feature: #1 Pagination
 
-Estimate of time needed to complete: hr
+Estimate of time needed to complete: 1.5 hr
 
-Start time: 1:55
+Start time: 4:30pm
 
-Finish time: 2:30
+Finish time: 5:45
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hr 45 min
 30 min at start
 
 
