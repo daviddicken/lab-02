@@ -8,11 +8,16 @@
     <link href='CSS/base.css' type='text/css' rel='stylesheet'>
     <link href='CSS/layouts.css' type='text/css' rel='stylesheet'>
     <link href='CSS/modules.css' type='text/css' rel='stylesheet'>
+   
     <script id="photo-template" type="text/x-tmpl-mustache">
       <section>
         <h2>{{keyword}}</h2>
         <img src="{{image}}" alt="{{description}}">
-        <p></p>
+        <!-- creating 2 p tags now, can refactor later -->
+        
+        <p>{{horns}}</p>
+        <p>{{name}}</p>
+        
       </section>
     </script>
 
@@ -22,6 +27,10 @@
       <h1>The Gallery of Horns</h1>
       <select>
         <option value="default">Filter by Keyword</option>
+      </select>
+      <select>
+        <option value="name">Sort By Name</option>
+        <option value="horns">Sort By Number of Horns</option>
       </select>
       <button>Page 2</button>
     </header>
