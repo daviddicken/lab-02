@@ -1,4 +1,5 @@
 'use strict';
+//====================== THURS plan
 // use ajax to GET info from the .JSON file
 // need to send each object through a constructor
 // create prototype to get info to fill template
@@ -8,7 +9,7 @@
 //forEach on that collection, add all options to menu
 // ajax:
 
-//=======================
+//======================= WEDS plan
 // add event listener to button
 // add attr to the section unique to json file it was loaded from
 // target attr with button click
@@ -21,29 +22,23 @@ displayPage('data/page-1.json');
 let toggle = 0;
 
 $('button').on('click',function(){
-  // debugger;
   animalHerd = [];
   $('main').empty();
   $('select:first').empty();
   toggle % 2 === 0 ? displayPage('data/page-2.json') : displayPage('data/page-1.json');
   toggle % 2 === 0 ? $('button').html('Page 1'): $('button').html('Page 2') ;
   toggle++;
-
 })
-
-
-
 
 function displayPage(file)
 {
   $.ajax(file, {method: 'GET', dataType: 'JSON'})
-  // $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
     .then(data => {
     // run each object through constructor
       data.forEach(objectInArray => {
         new HornedAnimals(objectInArray);
-        // new HornedAnimals(objectInArray).animalImageBuilder();
       })
+
       animalHerd.sort((a, b) => {
         if (a.name.toUpperCase() > b.name.toUpperCase()){
           return 1;
@@ -63,7 +58,6 @@ function displayPage(file)
         $('select:first').empty();
 
         //target if statement for whichever option is selected
-        // console.log(this.value);
         if (this.value === 'name') {
           animalHerd.sort((a, b) => {
             if (a.name.toUpperCase() > b.name.toUpperCase()){
@@ -76,17 +70,11 @@ function displayPage(file)
         }
 
         if (this.value === 'horns') {
-          console.log('were in clicked on horn');
           animalHerd.sort((a, b) => {
             return a.horns - b.horns;
-
           });
-          console.log(animalHerd);
-
           renderArray();
         }
-
-
       })
 
       //this is our keyword drop down selector
@@ -106,7 +94,7 @@ function renderArray(){
     $('main').append(animalHerd[i].animalImageBuilder());
   }}
 
-// create constructor:
+
 
 function HornedAnimals(obj){
   this.name = obj.title;
@@ -118,18 +106,14 @@ function HornedAnimals(obj){
   animalHerd.push(this)
 }
 
-// create protoType:
 
 HornedAnimals.prototype.animalImageBuilder = function(){
-// need to get template from html, fill template w/data info
-// append to DOM
 
   //grab template from html
   // use mustache to create new html by merging template with our object
   // return the html from method
   // append it to the DOM
   let template = $('#photo-template').html();
-  //using jQuery selector we can set the value of this to empty before rending sorted, set value  .textContent('')
   let html = Mustache.render(template, this);
 
   $('main').append(html);
@@ -156,5 +140,4 @@ HornedAnimals.prototype.dropDownList = function(){
   });
 }
 
-// sort by name function
 

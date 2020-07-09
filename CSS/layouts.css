@@ -9,13 +9,10 @@ img{
   height:90%;
   float: left;
   margin: 5px;
-
 }
 
 h2{
-  
   display: none;
-
 }
 
 p:first-of-type {
@@ -31,7 +28,6 @@ p{
 
 header{
   clear:both;
-
 }
 
 main{
@@ -45,15 +41,10 @@ section{
   padding: 5px;
   width: 240px;
   height: 200px;
-  /* float: left; */
-  /* flex-wrap: wrap;
-  flex-direction: column; */
-
 } 
 
 footer{
   clear: both;
-
 }
 
 @media only screen and (min-width: 480px)
