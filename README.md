@@ -100,8 +100,8 @@ Number and name of feature: #4 Sort Images
 
 Estimate of time needed to complete: 1 hr
 
-Start time: 6:10
+Start time: 6:10 pm
 
-Finish time: 
+Finish time: 9:40 pm
 
-Actual time needed to complete: 
+Actual time needed to complete:  3 hr
