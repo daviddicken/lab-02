@@ -1,36 +1,52 @@
 'use strict';
 // use ajax to GET info from the .JSON file
 // need to send each object through a constructor
-
-
 // create prototype to get info to fill template
 // use info to fill in the template
 // display imgs on page
-
 // global array of collection of all the animals
 //forEach on that collection, add all options to menu
-
 // ajax:
-$.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
-  .then(data => {
+
+//=======================
+// add event listener to button
+// add attr to the section unique to json file it was loaded from
+// target attr with button click
+// toggle between hide and show of each json img collection
+// only need to add attr to one set and use if or if not
+displayPage('data/page-1.json');
+let toggle = 0;
+
+$('button').on('click',function(){
+  $('main').empty();
+  $('select').empty();
+  toggle % 2 === 0 ? displayPage('data/page-2.json') : displayPage('data/page-1.json');
+  toggle % 2 === 0 ? $('button').html('Page 1'): $('button').html('Page 2') ;
+  toggle++;
+})
+
+function displayPage(file)
+{
+  $.ajax(file, {method: 'GET', dataType: 'JSON'})
+  // $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
+    .then(data => {
     // run each object through constructor
-    data.forEach(objectInArray => {
-      new HornedAnimals(objectInArray).animalImageBuilder();
+      data.forEach(objectInArray => {
+        new HornedAnimals(objectInArray).animalImageBuilder();
+      })
+
+      //Chance Harmon & Andrew Casper helped us with the below
+
+      $('select').on('change', function(){
+        $('section').hide();
+        $('section').each((index, element) => {
+          if (this.value === $(element).find('h2').text()){
+            $(element).show();
+          }
+        });
+      })
     })
-
-    //Chance Harmon & Andrew Casper helped us with the below
-
-    $('select').on('change', function(){
-      $('section').hide();
-      $('section').each((index, element) => {
-        if (this.value === $(element).find('h2').text()){
-
-          $(element).show();
-        }
-      });
-    })
-  })
-
+}
 // create constructor:
 
 function HornedAnimals(obj){
@@ -46,14 +62,23 @@ function HornedAnimals(obj){
 HornedAnimals.prototype.animalImageBuilder = function(){
 // need to get template from html, fill template w/data info
 // append to DOM
-  const template = $('#photo-template').html();
-  const $newSection = $(`<section>${template}</section>`);
 
-  $newSection.find('h2').text(this.keyword);
-  $newSection.find('img').attr('src', this.image);
-  $newSection.find('img').attr('alt', this.description);
-  $('main').append($newSection);
+  //grab template from html
+  // use mustache to create new html by merging template with our object
+  // return the html from method
+  // append it to the DOM
+  let template = $('#photo-template').html();
+  let html = Mustache.render(template, this);
 
+  $('main').append(html);
+
+  this.dropDownList();
+}
+
+//------------------- drop down function ----------------
+
+HornedAnimals.prototype.dropDownList = function(){
+  // maybe refactor below
   const $newOption = $(`<option value="${this.keyword}">${this.keyword}</option>`);
   $('select').append($newOption);
 

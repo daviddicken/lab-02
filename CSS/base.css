@@ -8,3 +8,6 @@ body{
   background-color: rgb(205, 248, 239);
 }
 
+main{
+  display: flex;
+}
