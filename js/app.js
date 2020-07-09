@@ -15,18 +15,24 @@
 // toggle between hide and show of each json img collection
 // only need to add attr to one set and use if or if not
 
-const animalHerd = [];
+let animalHerd = [];
 
 displayPage('data/page-1.json');
 let toggle = 0;
 
 $('button').on('click',function(){
+  // debugger;
+  animalHerd = [];
   $('main').empty();
   $('select:first').empty();
   toggle % 2 === 0 ? displayPage('data/page-2.json') : displayPage('data/page-1.json');
   toggle % 2 === 0 ? $('button').html('Page 1'): $('button').html('Page 2') ;
   toggle++;
+
 })
+
+
+
 
 function displayPage(file)
 {
@@ -38,12 +44,19 @@ function displayPage(file)
         new HornedAnimals(objectInArray);
         // new HornedAnimals(objectInArray).animalImageBuilder();
       })
+      animalHerd.sort((a, b) => {
+        if (a.name.toUpperCase() > b.name.toUpperCase()){
+          return 1;
+        } else {
+          return -1;
+        }})
 
-      renderArray();
+      renderArray()
 
       //Chance Harmon & Andrew Casper helped us with the below
       //Ron Dunphy helped us with the below as well
 
+      //the below works for sort drop down because we chained next to the selector
       $('select:first').next().on('change', function(){
         console.log('were in select:first');
         $('main').empty();
@@ -70,14 +83,13 @@ function displayPage(file)
           });
           console.log(animalHerd);
 
-
           renderArray();
         }
 
 
       })
 
-
+      //this is our keyword drop down selector
       $('select:first').on('change', function(){
         $('section').hide();
         $('section').each((index, element) => {
@@ -144,5 +156,5 @@ HornedAnimals.prototype.dropDownList = function(){
   });
 }
 
-
+// sort by name function
 
